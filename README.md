@@ -34,9 +34,16 @@ cd ..
 
 ### 2. Configure API Key
 
-Create a `.env` file in the project root:
+Copy `.env.example` to `.env` in the project root, then add your key:
 
-```bash
+```powershell
+Copy-Item .env.example .env
+notepad .env
+```
+
+Set the value to:
+
+```text
 OPENROUTER_API_KEY=sk-or-v1-...
 ```
 
@@ -59,20 +66,26 @@ CHAIRMAN_MODEL = "google/gemini-3-pro-preview"
 
 ## Running the Application
 
-**Option 1: Use the start script**
-```bash
-./start.sh
+### Windows PowerShell (recommended for this machine)
+
+From the repo root, run:
+```powershell
+.\start.ps1
 ```
 
-**Option 2: Run manually**
+This script opens two PowerShell windows:
+- backend on `http://localhost:8001`
+- frontend on `http://localhost:5173`
+
+If you prefer not to use the script, the manual PowerShell commands are:
 
 Terminal 1 (Backend):
-```bash
+```powershell
 uv run python -m backend.main
 ```
 
 Terminal 2 (Frontend):
-```bash
+```powershell
 cd frontend
 npm run dev
 ```
